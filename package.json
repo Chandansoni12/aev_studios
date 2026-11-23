@@ -1,0 +1,15 @@
+{
+  "name": "aevstudios-website",
+  "version": "1.0.0",
+  "description": "AEV Studios - Growth OS for Modern Businesses",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js",
+    "serve": "node server.js"
+  },
+  "dependencies": {
+    "gsap": "^3.15.0"
+  }
+}
