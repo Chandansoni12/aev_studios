@@ -1976,3 +1976,101 @@ button:focus-visible {
   outline: 2px solid #5147e6;
   outline-offset: 3px;
 }
+
+/* ==========================================================================
+   18. ULTRA-CLEAR NAVBAR VISIBILITY & PRELOADER TWEAKS
+   ========================================================================== */
+
+/* Completely hide "Inspire" text in loader */
+.aev-loader-center,
+.aev-loader-word,
+#aev-loader-word {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+/* Floating Ultra-Crisp Nav Pill */
+.framer-p5dxpc-container nav,
+nav[data-framer-name="Desktop"],
+.framer-xZpqg {
+  background: rgba(255, 255, 255, 0.94) !important;
+  backdrop-filter: blur(24px) saturate(190%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(190%) !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  border-radius: 999px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07) !important;
+  padding: 8px 18px !important;
+  margin-top: 14px !important;
+}
+
+/* Force 100% visible dark text on all nav items */
+.framer-p5dxpc-container nav a,
+.framer-p5dxpc-container nav a span,
+.framer-p5dxpc-container nav p,
+.framer-p5dxpc-container nav p a,
+.framer-p5dxpc-container nav .framer-text,
+.framer-p5dxpc-container nav .framer-1362rm7 h4 a,
+.framer-p5dxpc-container nav .framer-s7x4nx p a,
+.framer-p5dxpc-container nav .framer-s7x4nx a {
+  color: #111113 !important;
+  --framer-text-color: #111113 !important;
+  --text-color: #111113 !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Brand Name in Nav */
+.framer-p5dxpc-container nav .framer-1362rm7 h4 a {
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em !important;
+}
+
+/* Hover Accent */
+.framer-p5dxpc-container nav .framer-s7x4nx p a:hover {
+  color: #5147e6 !important;
+  --framer-text-color: #5147e6 !important;
+}
+
+/* Primary "Book a Call" CTA button on the right side of nav */
+.framer-p5dxpc-container nav [data-framer-name="White Secondary"],
+.framer-p5dxpc-container nav a.framer-U9gh0 {
+  background-color: #111113 !important;
+  border: 1px solid #111113 !important;
+  border-radius: 999px !important;
+  padding: 8px 20px !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.framer-p5dxpc-container nav [data-framer-name="White Secondary"]:hover,
+.framer-p5dxpc-container nav a.framer-U9gh0:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2) !important;
+}
+
+.framer-p5dxpc-container nav [data-framer-name="White Secondary"] p,
+.framer-p5dxpc-container nav [data-framer-name="White Secondary"] span,
+.framer-p5dxpc-container nav a.framer-U9gh0 p,
+.framer-p5dxpc-container nav a.framer-U9gh0 span {
+  color: #ffffff !important;
+  --framer-text-color: #ffffff !important;
+  --text-color: #ffffff !important;
+  font-weight: 600 !important;
+}
+
+.framer-p5dxpc-container nav a.framer-U9gh0 .framer-1skyb4k {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+.framer-p5dxpc-container nav a.framer-U9gh0 .framer-hzr3V {
+  background-color: #ffffff !important;
+  --esondr: #ffffff !important;
+}
+
+/* Footer AgentOS logo safety override */
+[data-framer-name="Footer"] img[src*="sZYLb1A2ZByZACiLcm6FEH27CU"] {
+  content: url("assets/framerusercontent.com/images/sZYLb1A2ZByZACiLcm6FEH27CU.svg") !important;
+}
