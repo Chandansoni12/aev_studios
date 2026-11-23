@@ -1842,3 +1842,137 @@ button.framer-U9gh0:hover .framer-1skyb4k .framer-hzr3V,
   font-weight: 600;
   text-decoration: underline;
 }
+
+/* ==========================================================================
+   17. ULTRA-PREMIUM UI ENHANCEMENTS & MICRO-INTERACTIONS
+   ========================================================================== */
+
+/* Modern Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f4f4f6;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(81, 71, 230, 0.35);
+  border-radius: 999px;
+  border: 2px solid #f4f4f6;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(81, 71, 230, 0.65);
+}
+
+/* Luxury Text Selection */
+::selection {
+  background: #5147e6 !important;
+  color: #ffffff !important;
+}
+
+/* Featured Sole Eclips Card Visual Accents */
+.framer-Qe53u:has(a[href*="sole-eclips"]) {
+  border: 1px solid rgba(81, 71, 230, 0.32) !important;
+  background: linear-gradient(160deg, #ffffff 0%, #faf9fe 100%) !important;
+  box-shadow: 0 16px 36px -10px rgba(81, 71, 230, 0.16) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.framer-Qe53u:has(a[href*="sole-eclips"])::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #5147e6, #a97eff, #5147e6);
+  background-size: 200% 100%;
+  animation: aevShimmer 4s linear infinite;
+}
+
+@keyframes aevShimmer {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 200% 0%; }
+}
+
+/* Testimonial Watermark & Ambient Polish */
+.aev-testimonial-card::after {
+  content: "“";
+  position: absolute;
+  right: 28px;
+  bottom: 80px;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 110px;
+  line-height: 1;
+  color: rgba(81, 71, 230, 0.04);
+  pointer-events: none;
+  font-style: italic;
+}
+
+.aev-testimonial-card.featured::after {
+  color: rgba(81, 71, 230, 0.08);
+}
+
+/* Glowing Border on Featured Testimonial */
+.aev-testimonial-card.featured {
+  position: relative;
+}
+
+.aev-testimonial-card.featured::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 25px;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(81, 71, 230, 0.4), transparent 50%, rgba(169, 126, 255, 0.3));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Footer Link Dynamic Hover Underline */
+.aev-footer-col ul li a {
+  position: relative;
+  width: fit-content;
+}
+
+.aev-footer-col ul li a::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: linear-gradient(90deg, #5147e6, #a97eff);
+  transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.aev-footer-col ul li a:hover::after {
+  width: 100%;
+}
+
+/* Floating Calendly Pill Pulse Animation */
+@keyframes aevPulseGlow {
+  0%, 100% {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35), 0 0 16px rgba(81, 71, 230, 0.45);
+  }
+  50% {
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.45), 0 0 28px rgba(169, 126, 255, 0.7);
+  }
+}
+
+.aev-calendly-float-pill {
+  animation: aevPulseGlow 3s ease-in-out infinite;
+}
+
+/* Smooth Focus States for Accessibility */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #5147e6;
+  outline-offset: 3px;
+}
