@@ -909,24 +909,67 @@
   }
 
   /* ══════════════════════════════════════════════════════════════════════════
-     12. STICKY NAVBAR GLASSMORPHISM
+     12. STICKY NAVBAR GLASSMORPHISM & ADAPTIVE CONTRAST (WHITE IN BLACK & BLACK IN WHITE)
   ══════════════════════════════════════════════════════════════════════════ */
   function initNavbarScroll() {
     const containers = document.querySelectorAll('.framer-p5dxpc-container');
     if (!containers.length) return;
 
-    function onScroll() {
+    function getEffectiveBgColor(el) {
+      while (el && el !== document.documentElement && el !== document.body) {
+        const style = window.getComputedStyle(el);
+        const bg = style.backgroundColor;
+        if (bg && bg !== 'transparent' && bg !== 'rgba(0, 0, 0, 0)') {
+          return bg;
+        }
+        el = el.parentElement;
+      }
+      return window.getComputedStyle(document.body).backgroundColor || 'rgb(10, 11, 16)';
+    }
+
+    function isColorDark(rgbStr) {
+      if (!rgbStr) return true;
+      const match = rgbStr.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
+      if (!match) return true;
+      const r = parseInt(match[1], 10);
+      const g = parseInt(match[2], 10);
+      const b = parseInt(match[3], 10);
+      // Relative luminance
+      const lum = 0.299 * r + 0.587 * g + 0.114 * b;
+      return lum < 150;
+    }
+
+    function updateNavState() {
       const isScrolled = window.scrollY > 20;
+
+      // Probe background behind the navbar at Y = 50px
+      containers.forEach((c) => (c.style.pointerEvents = 'none'));
+      const probeEl = document.elementFromPoint(Math.floor(window.innerWidth / 2), 50);
+      containers.forEach((c) => (c.style.pointerEvents = 'auto'));
+
+      const bg = getEffectiveBgColor(probeEl);
+      const darkBg = isColorDark(bg);
+
       containers.forEach((c) => {
         const nav = c.querySelector('nav');
         if (nav) {
           nav.classList.toggle('nav-scrolled', isScrolled);
         }
+        if (darkBg) {
+          c.classList.add('nav-theme-dark');
+          c.classList.remove('nav-theme-light');
+        } else {
+          c.classList.add('nav-theme-light');
+          c.classList.remove('nav-theme-dark');
+        }
       });
     }
 
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
+    window.addEventListener('scroll', updateNavState, { passive: true });
+    window.addEventListener('resize', updateNavState, { passive: true });
+    updateNavState();
+    setTimeout(updateNavState, 200);
+    setTimeout(updateNavState, 800);
   }
 
   /* ══════════════════════════════════════════════════════════════════════════

@@ -612,37 +612,6 @@ button.framer-U9gh0:hover .framer-1skyb4k .framer-hzr3V,
   z-index: 1;
 }
 
-/* Navbar Links Contrast against Light Hero */
-.framer-p5dxpc-container nav .framer-1362rm7 a {
-  color: #111113 !important;
-  font-weight: 600 !important;
-}
-
-.framer-p5dxpc-container nav .framer-s7x4nx p a {
-  color: #44444e !important;
-  font-weight: 500 !important;
-  transition: color 0.2s ease !important;
-}
-
-.framer-p5dxpc-container nav .framer-s7x4nx p a:hover {
-  color: #5147e6 !important;
-}
-
-.framer-p5dxpc-container nav a.framer-U9gh0 {
-  background-color: #111113 !important;
-  border-color: #111113 !important;
-  border-radius: 40px !important;
-}
-
-.framer-p5dxpc-container nav a.framer-U9gh0 .framer-1rrdv2t p {
-  color: #ffffff !important;
-}
-
-.framer-p5dxpc-container nav a.framer-U9gh0 .framer-hzr3V {
-  background-color: #ffffff !important;
-  --esondr: #ffffff !important;
-}
-
 /* Pre-Heading Pill Tag */
 .framer-1v59uda p {
   display: inline-flex !important;
@@ -1978,7 +1947,7 @@ button:focus-visible {
 }
 
 /* ==========================================================================
-   18. ULTRA-CLEAR NAVBAR VISIBILITY & PRELOADER TWEAKS
+   18. FIXED GLASSY NAVBAR WITH ADAPTIVE CONTRAST (WHITE IN BLACK & BLACK IN WHITE)
    ========================================================================== */
 
 /* Completely hide "Inspire" text in loader */
@@ -1990,82 +1959,190 @@ button:focus-visible {
   opacity: 0 !important;
 }
 
-/* Floating Ultra-Crisp Nav Pill */
+/* 1. Pinned & Fixed Navbar across all pages ("non scrollable and still in every page") */
+.framer-p5dxpc-container {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  z-index: 999999 !important;
+  pointer-events: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* 2. Restored Natural Full-Width Layout ("restore design like before") */
 .framer-p5dxpc-container nav,
 nav[data-framer-name="Desktop"],
 .framer-xZpqg {
-  background: rgba(255, 255, 255, 0.94) !important;
-  backdrop-filter: blur(24px) saturate(190%) !important;
-  -webkit-backdrop-filter: blur(24px) saturate(190%) !important;
-  border: 1px solid rgba(0, 0, 0, 0.1) !important;
-  border-radius: 999px !important;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07) !important;
-  padding: 8px 18px !important;
-  margin-top: 14px !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 16px 40px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  box-sizing: border-box !important;
+  /* Frosted Glass Effect */
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  transition: background 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
-/* Force 100% visible dark text on all nav items */
+/* ══════════════════════════════════════════════════════════════════════════
+   THEME A: WHITE IN BLACK (Default / On Dark Backgrounds)
+   ══════════════════════════════════════════════════════════════════════════ */
+.framer-p5dxpc-container nav,
+.framer-p5dxpc-container.nav-theme-dark nav,
+nav.nav-theme-dark {
+  background: rgba(10, 11, 16, 0.72) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* White Nav Links & Brand on Dark */
 .framer-p5dxpc-container nav a,
 .framer-p5dxpc-container nav a span,
 .framer-p5dxpc-container nav p,
 .framer-p5dxpc-container nav p a,
 .framer-p5dxpc-container nav .framer-text,
-.framer-p5dxpc-container nav .framer-1362rm7 h4 a,
-.framer-p5dxpc-container nav .framer-s7x4nx p a,
-.framer-p5dxpc-container nav .framer-s7x4nx a {
-  color: #111113 !important;
-  --framer-text-color: #111113 !important;
-  --text-color: #111113 !important;
-  font-weight: 600 !important;
+.framer-p5dxpc-container.nav-theme-dark nav a,
+.framer-p5dxpc-container.nav-theme-dark nav a span,
+.framer-p5dxpc-container.nav-theme-dark nav p a,
+.framer-p5dxpc-container.nav-theme-dark nav .framer-text {
+  color: rgba(255, 255, 255, 0.9) !important;
+  --framer-text-color: rgba(255, 255, 255, 0.9) !important;
+  --text-color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 500 !important;
   font-size: 14px !important;
   opacity: 1 !important;
   visibility: visible !important;
+  transition: color 0.25s ease !important;
 }
 
-/* Brand Name in Nav */
-.framer-p5dxpc-container nav .framer-1362rm7 h4 a {
+.framer-p5dxpc-container nav .framer-s7x4nx p a:hover,
+.framer-p5dxpc-container.nav-theme-dark nav .framer-s7x4nx p a:hover {
+  color: #ffffff !important;
+  --framer-text-color: #ffffff !important;
+}
+
+/* Brand Name in White */
+.framer-p5dxpc-container nav .framer-1362rm7 h4 a,
+.framer-p5dxpc-container.nav-theme-dark nav .framer-1362rm7 h4 a {
+  color: #ffffff !important;
+  --framer-text-color: #ffffff !important;
   font-size: 16px !important;
   font-weight: 700 !important;
   letter-spacing: -0.02em !important;
 }
 
-/* Hover Accent */
-.framer-p5dxpc-container nav .framer-s7x4nx p a:hover {
+/* "Book a call" CTA Button on Dark: Crisp White Pill with Dark Text */
+.framer-p5dxpc-container nav [data-framer-name="White Secondary"],
+.framer-p5dxpc-container nav a.framer-U9gh0,
+.framer-p5dxpc-container.nav-theme-dark nav a.framer-U9gh0 {
+  background-color: #ffffff !important;
+  border: 1px solid #ffffff !important;
+  border-radius: 999px !important;
+  padding: 8px 18px !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.25s ease !important;
+}
+
+.framer-p5dxpc-container nav a.framer-U9gh0:hover,
+.framer-p5dxpc-container.nav-theme-dark nav a.framer-U9gh0:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.25) !important;
+}
+
+.framer-p5dxpc-container nav a.framer-U9gh0 p,
+.framer-p5dxpc-container nav a.framer-U9gh0 span,
+.framer-p5dxpc-container.nav-theme-dark nav a.framer-U9gh0 p,
+.framer-p5dxpc-container.nav-theme-dark nav a.framer-U9gh0 span {
+  color: #111113 !important;
+  --framer-text-color: #111113 !important;
+  --text-color: #111113 !important;
+  font-weight: 600 !important;
+}
+
+.framer-p5dxpc-container nav a.framer-U9gh0 .framer-1skyb4k,
+.framer-p5dxpc-container.nav-theme-dark nav a.framer-U9gh0 .framer-1skyb4k {
+  background-color: rgba(17, 17, 19, 0.08) !important;
+}
+
+.framer-p5dxpc-container nav a.framer-U9gh0 .framer-hzr3V,
+.framer-p5dxpc-container.nav-theme-dark nav a.framer-U9gh0 .framer-hzr3V {
+  background-color: #111113 !important;
+  --esondr: #111113 !important;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   THEME B: BLACK IN WHITE (On Light / White Backgrounds)
+   ══════════════════════════════════════════════════════════════════════════ */
+.framer-p5dxpc-container.nav-theme-light nav,
+nav.nav-theme-light {
+  background: rgba(255, 255, 255, 0.85) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06) !important;
+}
+
+/* Black Nav Links & Brand on Light */
+.framer-p5dxpc-container.nav-theme-light nav a,
+.framer-p5dxpc-container.nav-theme-light nav a span,
+.framer-p5dxpc-container.nav-theme-light nav p,
+.framer-p5dxpc-container.nav-theme-light nav p a,
+.framer-p5dxpc-container.nav-theme-light nav .framer-text,
+.framer-p5dxpc-container.nav-theme-light nav .framer-s7x4nx p a {
+  color: rgba(17, 17, 19, 0.85) !important;
+  --framer-text-color: rgba(17, 17, 19, 0.85) !important;
+  --text-color: rgba(17, 17, 19, 0.85) !important;
+  font-weight: 500 !important;
+  font-size: 14px !important;
+}
+
+.framer-p5dxpc-container.nav-theme-light nav .framer-s7x4nx p a:hover {
   color: #5147e6 !important;
   --framer-text-color: #5147e6 !important;
 }
 
-/* Primary "Book a Call" CTA button on the right side of nav */
-.framer-p5dxpc-container nav [data-framer-name="White Secondary"],
-.framer-p5dxpc-container nav a.framer-U9gh0 {
+/* Brand Name in Black */
+.framer-p5dxpc-container.nav-theme-light nav .framer-1362rm7 h4 a {
+  color: #111113 !important;
+  --framer-text-color: #111113 !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em !important;
+}
+
+/* "Book a call" CTA Button on Light: Sleek Black Pill with White Text */
+.framer-p5dxpc-container.nav-theme-light nav a.framer-U9gh0 {
   background-color: #111113 !important;
   border: 1px solid #111113 !important;
   border-radius: 999px !important;
-  padding: 8px 20px !important;
-  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+  padding: 8px 18px !important;
 }
 
-.framer-p5dxpc-container nav [data-framer-name="White Secondary"]:hover,
-.framer-p5dxpc-container nav a.framer-U9gh0:hover {
+.framer-p5dxpc-container.nav-theme-light nav a.framer-U9gh0:hover {
   transform: translateY(-2px) !important;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2) !important;
 }
 
-.framer-p5dxpc-container nav [data-framer-name="White Secondary"] p,
-.framer-p5dxpc-container nav [data-framer-name="White Secondary"] span,
-.framer-p5dxpc-container nav a.framer-U9gh0 p,
-.framer-p5dxpc-container nav a.framer-U9gh0 span {
+.framer-p5dxpc-container.nav-theme-light nav a.framer-U9gh0 p,
+.framer-p5dxpc-container.nav-theme-light nav a.framer-U9gh0 span {
   color: #ffffff !important;
   --framer-text-color: #ffffff !important;
   --text-color: #ffffff !important;
   font-weight: 600 !important;
 }
 
-.framer-p5dxpc-container nav a.framer-U9gh0 .framer-1skyb4k {
+.framer-p5dxpc-container.nav-theme-light nav a.framer-U9gh0 .framer-1skyb4k {
   background-color: rgba(255, 255, 255, 0.15) !important;
 }
 
-.framer-p5dxpc-container nav a.framer-U9gh0 .framer-hzr3V {
+.framer-p5dxpc-container.nav-theme-light nav a.framer-U9gh0 .framer-hzr3V {
   background-color: #ffffff !important;
   --esondr: #ffffff !important;
 }
