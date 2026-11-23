@@ -2074,3 +2074,52 @@ nav[data-framer-name="Desktop"],
 [data-framer-name="Footer"] img[src*="sZYLb1A2ZByZACiLcm6FEH27CU"] {
   content: url("assets/framerusercontent.com/images/sZYLb1A2ZByZACiLcm6FEH27CU.svg") !important;
 }
+
+/* ==========================================================================
+   19. EXACT NAVBAR LOGO IN FOOTER
+   ========================================================================== */
+[data-framer-name="Footer"] .framer-1h5beka {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 16px !important;
+  align-items: flex-start !important;
+}
+
+[data-framer-name="Footer"] a.framer-khsyln,
+[data-framer-name="Footer"] [data-framer-name="Logo"],
+.aev-footer-logo-link {
+  width: auto !important;
+  height: 38px !important;
+  aspect-ratio: auto !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  text-decoration: none !important;
+  overflow: visible !important;
+}
+
+[data-framer-name="Footer"] [data-framer-name="Logo"] img,
+.aev-footer-logo-img {
+  width: 38px !important;
+  height: 38px !important;
+  min-width: 38px !important;
+  min-height: 38px !important;
+  aspect-ratio: 1 / 1 !important;
+  border-radius: 10px !important;
+  object-fit: contain !important;
+  display: block !important;
+  box-shadow: 0 4px 14px rgba(81, 71, 230, 0.25) !important;
+}
+
+/* Text lockup "AEV Studios" next to the footer logo */
+[data-framer-name="Footer"] a.framer-khsyln::after,
+[data-framer-name="Footer"] [data-framer-name="Logo"]::after {
+  content: "AEV Studios" !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Plus Jakarta Sans", "Geist", "Segoe UI", sans-serif !important;
+  font-size: 19px !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em !important;
+  color: #ffffff !important;
+  display: inline-block !important;
+  line-height: 1 !important;
+}
